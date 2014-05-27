@@ -1,0 +1,6 @@
+  I(AVG.MATH.SAT^2)           I(EXPEND.PER.STUDENT^2) 
+                         1.611036                          8.978457 
+   PUBLIC.PRIVATE:ROOM.BOARD.COST   PUBLIC.PRIVATE:OUT.STATE.TUTION 
+                         3.962255                          7.854033 
+        PUBLIC.PRIVATE:ALUM.DONAT PUBLIC.PRIVATE:EXPEND.PER.STUDENT 
+                         2.020889                         18.023813 
