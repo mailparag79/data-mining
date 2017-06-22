@@ -11,9 +11,6 @@ import sys
 from sklearn.metrics import accuracy_score   # an accuracy scoring function from scikit learn
 sys.path.append('utils')            # append our utility names
 
-# this line is required in order to plot in a jupyter notebook itself
-get_ipython().magic(u'matplotlib inline')
-
 
 # # 1.  Cross-validation for regression
 # 
