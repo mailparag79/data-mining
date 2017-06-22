@@ -144,8 +144,6 @@ print 'best parameter according to cross-validation is = ' + str(best_param)
 # 
 # In the next cell we plot the result of a neural-net-based regressor fit to the data - plugging in the best_param found via cross-validation above.
 
-# In[23]:
-
 from sklearn.neural_network import MLPRegressor
 reg = MLPRegressor(solver = 'lbfgs',alpha = 0,activation = 'tanh',random_state = 1,hidden_layer_sizes = best_param)
 
@@ -256,8 +254,6 @@ print 'best parameter according to cross-validation is = ' + str(best_param)
 # With the best choice of parameter found via cross-validation, lets look at the resulting model.
 # 
 # In the next cell we plot the result of a neural-net classifier fit to the data - plugging in the best_param found via cross-validation above.
-
-# In[17]:
 
 # TODO: create an instance of a neural-net-based classifier from scikit learn
 
