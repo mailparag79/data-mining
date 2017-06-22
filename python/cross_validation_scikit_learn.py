@@ -49,7 +49,7 @@ from sklearn.kernel_ridge import KernelRidge
 regressor = KernelRidge()
 
 # create a parameter range to test over
-parameters = {'kernel':['poly'], 'degree':np.arange(1,50)}
+parameters = {'kernel':['poly', 'linear'], 'degree':np.arange(1,50)}
 
 # create an instance of the GridSearchCV cross-validator - using our regressor and choice or parameters
 cross_validator = GridSearchCV(regressor, parameters)
@@ -67,6 +67,8 @@ print 'best parameter according to cross-validation is = ' + str(best_param)
 # In the next cell we plot the result of a kernel regressor fit to the data - plugging in the best_param found via cross-validation above.
 
 # create an instance of a kernel-based regressor from scikit learn
+# load in KernelRidge - a kernel regressor function from the scikit-learn library
+
 regressor = KernelRidge(kernel = 'poly',degree = best_param)
 
 # fit our chosen regressor to the dataset
@@ -76,15 +78,6 @@ regressor.fit(input_data_2[:, np.newaxis], output_data_2)
 utils.plot_approx(regressor,input_data_2,output_data_2,true_x_2,true_y_2)
 
 
-# TODO: After running the two Python cells above answer following questions.
-#     
-# - Does the resulting parameter provide a good fit to the dataset?  As good as when you tuned the parameter by hand?
-# 
-# 
-# - When the cross-validation cell, does it always result in the same best_param being chosen?
-
-
-# TODO: fill in parameter range to test over
 parameters = {}
 
 # create an instance of the GridSearchCV cross-validator - using our regressor and choice or parameters
@@ -107,6 +100,24 @@ regressor.fit(input_data_2[:, np.newaxis], output_data_2)
 
 # plot pts (in black), true function (in dashed red), and approximation (in blue)
 utils.plot_approx(regressor,input_data_2,output_data_2,true_x_2,true_y_2)
+
+
+
+## load in your tree-based regressor, and create a default instance of it
+from sklearn import tree
+regressor = tree.DecisionTreeRegressor()
+
+parameters = {'max_depth':np.arange(1, 50)}
+
+# create an instance of the GridSearchCV cross-validator - using our regressor and choice or parameters
+cross_validator = GridSearchCV(regressor, parameters)
+
+# run the cross-validation algorithm
+cross_validator.fit(input_data_2[:, np.newaxis],output_data_2)
+
+# get the best parameter choice based on cross-validation and print out
+best_param =  cross_validator.best_estimator_
+print 'best parameter according to cross-validation is = ' + str(best_param)
 
 
 # ### Neural network based regressors
